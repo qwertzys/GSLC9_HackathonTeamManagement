@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Connection {
 	
-	String filePathUser = "C:\\Users\\ASUS\\AppData\\Local\\Temp\\Temp1_Hackathon Team Management GLS CASE STUDY (1).zip\\Database.zip\\user.csv";
-	String filePathTeam = "C:\\Users\\ASUS\\AppData\\Local\\Temp\\Temp1_Hackathon Team Management GLS CASE STUDY (1).zip\\Database.zip\\teams.csv";
+	String filePathUser = "https://github.com/qwertzys/GSLC9_HackathonTeamManagement/blob/main/OOPGSLC9/src/user.csv";
+	String filePathTeam = "https://github.com/qwertzys/GSLC9_HackathonTeamManagement/blob/main/OOPGSLC9/src/user.csv";
 	
 }
