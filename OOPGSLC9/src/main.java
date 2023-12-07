@@ -23,12 +23,15 @@ public class main {
 			// Menjalankan program berdasarkan pilihan choice
 			switch(choice) {
 				case 1: { // Menampilkan menu utama awal program
-					
 					break;
 				}
 				
 				case 2: { // Insert Data
 					int insertTable = 0;
+					String name;
+					int nim;
+					String teamName;
+					String newTeam;
 					do {
 						System.out.println("Which Table to insert?");
 						System.out.println("1. User");
@@ -36,12 +39,15 @@ public class main {
 						insertTable = inp.nextInt();
 						if (insertTable == 1 && !teams.isEmpty()) {
 							System.out.print("Add Name: ");
+							name = inp.next();
 							System.out.print("Add NIM: ");
+							nim = inp.nextInt();
 							System.out.print("Add Team: ");
+							teamName = inp.next();
 						} else if (insertTable == 2) {
 							System.out.print("Add Team Name: ");
-							
-							// teams.add(newTeam);
+							newTeam = inp.next();
+							teams.add(newTeam);
 						} else {
 							System.out.println("Invalid Option, try again");
 						}
@@ -56,35 +62,31 @@ public class main {
 					int showTable = 0;
 					int conditionChoice = 0;
 					String condition;
+					
 					do {
 						System.out.println("Which Table to Show?");
 						System.out.println("1. User");
 						System.out.println("2. Team");
-						showTable = inp.nextInt();
-						
-//						if (showTable == 1) {
-//							
-//						} else if (showTable == 2) {
-//							
-//						} else {
-//							System.out.println("Invalid Option, try again");
-//						}
-						
-						
+						showTable = inp.nextInt();	
+					} while (showTable != 1 && showTable != 2);
+					
+					do {
 						System.out.println("Want to filter by condition?");
 						System.out.println("1. Yes");
 						System.out.println("2. No");
 						conditionChoice = inp.nextInt();
-						if (conditionChoice == 2) {
-							// show semua table
-							// Butuh function untuk menunjukkan semua table
-						} else { // show table sesuai dengan kondisi yang terkasih
-							System.out.println("Add condition, seperate by semicolon [condition;=;value]: ");
-							condition = inp.next();
-							
-							// Butuh function dibawah line ini untuk menunjukkan tabel sesuai dengan kondisi yang terkasih
-						}
-					} while (showTable != 1 || showTable != 2);
+					} while (conditionChoice != 1 && conditionChoice != 2);
+					
+					if (conditionChoice == 2) {
+						// show semua table
+						// Butuh function untuk menunjukkan semua table
+					} else { // show table sesuai dengan kondisi yang terkasih
+						System.out.print("Add condition, seperate by semicolon [condition;=;value]: ");
+						condition = inp.next();				
+						// Butuh function dibawah line ini untuk menunjukkan tabel sesuai dengan kondisi yang terkasih
+					}
+						
+					
 					break;
 				}
 				
