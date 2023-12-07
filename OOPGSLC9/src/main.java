@@ -14,7 +14,7 @@ public class main {
 			System.out.println("4. Exit");
 			System.out.println("Select the following option: ");
 			choice = inp.nextInt(); // scan integer
-			
+			// testing untuk github doang, ignore this line
 			// Menjalankan program berdasarkan pilihan choice
 			switch(choice) {
 				case 1: { // Menampilkan menu utama awal program
