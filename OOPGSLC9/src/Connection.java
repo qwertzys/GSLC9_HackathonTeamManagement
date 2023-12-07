@@ -11,6 +11,7 @@ import java.io.IOException;
 // c. menulis ke dalam file .csv
 
 public class Connection {
+
     private CSVParser csvParser;
 
     public Connection(String filePath) {
@@ -25,4 +26,8 @@ public class Connection {
     public CSVParser getCsvParser() {
         return csvParser;
     }
+
+	String filePathUser = "https://github.com/qwertzys/GSLC9_HackathonTeamManagement/blob/main/OOPGSLC9/src/user.csv";
+	String filePathTeam = "https://github.com/qwertzys/GSLC9_HackathonTeamManagement/blob/main/OOPGSLC9/src/team.csv";
+	
 }
