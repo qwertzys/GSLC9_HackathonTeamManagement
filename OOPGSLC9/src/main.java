@@ -1,10 +1,14 @@
 import java.util.Scanner;
-import java.util.*;
+import java.util.ArrayList;
+// import java.util.*;
 
 public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		hackerInfo hacker = new hackerInfo();
+		ArrayList<String> teams = new ArrayList();
+		// ArrayList<String> hacker = new ArrayList();
 		Scanner inp = new Scanner(System.in); // Scanner
 		int choice = 0; // default choice mulai dari 0 untuk pilih options
 		while (choice != 4) { // Loop Menu utama terus sampe kena exit
@@ -30,16 +34,18 @@ public class main {
 						System.out.println("1. User");
 						System.out.println("2. Team");
 						insertTable = inp.nextInt();
-						if (insertTable == 1) {
+						if (insertTable == 1 && !teams.isEmpty()) {
 							System.out.print("Add Name: ");
 							System.out.print("Add NIM: ");
 							System.out.print("Add Team: ");
 						} else if (insertTable == 2) {
-							System.out.print("Add Team Name: ");	
+							System.out.print("Add Team Name: ");
+							
+							// teams.add(newTeam);
 						} else {
 							System.out.println("Invalid Option, try again");
 						}
-					} while (insertTable != 1 || insertTable != 2);
+					} while (insertTable != 1 && insertTable != 2);
 					
 					// butuh function untuk insert data kepada csv dibawah line ini
 					
