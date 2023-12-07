@@ -13,6 +13,6 @@ import java.io.IOException;
 public class Connection {
 	
 	String filePathUser = "https://github.com/qwertzys/GSLC9_HackathonTeamManagement/blob/main/OOPGSLC9/src/user.csv";
-	String filePathTeam = "https://github.com/qwertzys/GSLC9_HackathonTeamManagement/blob/main/OOPGSLC9/src/user.csv";
+	String filePathTeam = "https://github.com/qwertzys/GSLC9_HackathonTeamManagement/blob/main/OOPGSLC9/src/team.csv";
 	
 }
