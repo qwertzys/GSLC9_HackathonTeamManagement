@@ -11,6 +11,7 @@ public class Main {
 		
 		User u = new User();
 		Team t = new Team();
+		Connection c = new Connection();
 		ArrayList<User> au = new ArrayList();
 		ArrayList<Team> at = new ArrayList();
 		Scanner inp = new Scanner(System.in); // Scanner
@@ -53,6 +54,17 @@ public class Main {
 						} else if (insertTable == 2) {
 							System.out.print("Add Team Name: ");
 							newTeam = inp.next();
+							String[] str = new String[5];
+							str[0] = "=";
+							str[1] = newTeam;
+							if(t.findOne("name", str , false, null, c) != null) {
+								System.out.println("name already added");
+							} else {
+								at = t.find(null, null, null, null, c);
+								t.setName(newTeam);
+								t.setId(at.get(at.size()-1).getId()+1);
+								t.Insert(t, c);
+							}
 							
 							
 						} else {
@@ -87,25 +99,72 @@ public class Main {
 					if (conditionChoice == 2) {
 						// show semua table
 						// Butuh function untuk menunjukkan semua table
-					} else { // show table sesuai dengan kondisi yang terkasih
-						System.out.print("Add condition, seperate by semicolon [condition;=;value]: ");
-						condition = inp.next();				
-						// Butuh function dibawah line ini untuk menunjukkan tabel sesuai dengan kondisi yang terkasih
-					}
 						
-					
+						if(showTable == 1) {
+							ArrayList<User> au1 = u.find(null, null, null, null, c);
+							System.out.println("NIM | Name | Team ID");
+							for(User us : au1) {
+								System.out.printf("%s | %s | %d\n", us.getNim(), us.getName(), us.getId());
+							}
+						}else {
+							ArrayList<Team> at1 = t.find(null, null, null, null, c);
+							System.out.println("ID | Team Name");
+							for(Team te : at1) {
+								System.out.printf("%d | %s\n",te.getId(),te.getName());
+							}
+						}
+						
+						
+					} else { // show table sesuai dengan kondisi yang terkasih
+						System.out.print("Add condition, separate by semicolon [condition;=;value]: ");
+						condition = inp.next();			
+						String[] conditionSpl = condition.split(";");
+						
+						// Butuh function dibawah line ini untuk menunjukkan tabel sesuai dengan kondisi yang dikasih
+						
+						if(showTable == 1) {
+							if(conditionSpl[0].equalsIgnoreCase("nim") ) {
+								ArrayList<User> au1 = u.find(null, null, null, null, c);
+								System.out.println("NIM | Name | Team ID");
+								for(User us : au1) {
+									if(conditionSpl[2].equalsIgnoreCase(us.getNim()))
+									System.out.printf("%s | %s | %d\n", us.getNim(), us.getName(), us.getId());
+								}
+							}else if(conditionSpl[0].equalsIgnoreCase("name")) {
+								ArrayList<User> au1 = u.find(null, null, null, null, c);
+								System.out.println("NIM | Name | Team ID");
+								for(User us : au1) 
+									if(conditionSpl[2].equalsIgnoreCase(us.getName()))
+									System.out.printf("%s | %s | %d\n", us.getNim(), us.getName(), us.getId());
+							}else if(conditionSpl[0].equalsIgnoreCase("TeamID")) {
+								ArrayList<User> au1 = u.find(null, null, null, null, c);
+								System.out.println("NIM | Name | Team ID");
+								for(User us : au1) 
+									if(conditionSpl[2].equalsIgnoreCase(Integer.toString(us.getId())))
+									System.out.printf("%s | %s | %d\n", us.getNim(), us.getName(), us.getId());
+							}
+						}else {
+							if(conditionSpl[0].equalsIgnoreCase("id")) {
+								ArrayList<Team> at1 = t.find(null, null, null, null, c);
+								System.out.println("ID | Team Name");
+								for(Team te : at1) {
+									if(conditionSpl[2].equalsIgnoreCase(Integer.toString(te.getId())))
+									System.out.printf("%d | %s\n",te.getId(),te.getName());
+								}
+							}else if(conditionSpl[0].equalsIgnoreCase("TeamName")) {
+								ArrayList<Team> at1 = t.find(null, null, null, null, c);
+								System.out.println("ID | Team Name");
+								for(Team te : at1) {
+									if(conditionSpl[2].equalsIgnoreCase(Integer.toString(te.getId())))
+									System.out.printf("%d | %s\n",te.getId(),te.getName());
+								}
+							}
+						}
+					}
 					break;
 				}
-				
-				// default ini ignore aja, lagi testing
-//				default: { // kalau pilih nomor lain
-//					System.out.println("Invalid Option, please try again");
-////					inp.next();
-//					break;
-//				}
 			}
 		}
-		
 		System.out.println("Program Exited");
 	}
 }
