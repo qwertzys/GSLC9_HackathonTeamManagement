@@ -6,7 +6,7 @@ public class Team extends Model implements TeamRepository {
 	String name;
 	int member;
 	String teamFilePath = "C:\\Users\\stebb\\Downloads\\Hackathon Team Management GLS CASE STUDY\\Database\\teams.csv";
-	
+	//path sesuaikan dengan local path
 	public void setName(String name) {
 		this.name = name;
 	}
