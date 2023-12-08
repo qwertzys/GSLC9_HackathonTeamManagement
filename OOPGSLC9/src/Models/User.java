@@ -6,7 +6,7 @@ public class User extends Model implements UserRepository {
 	String name;
 	String nim;
 	String userFilePath = "C:\\Users\\stebb\\Downloads\\Hackathon Team Management GLS CASE STUDY\\Database\\user.csv";
-	
+	//path sesuaikan dengan local path
 	public void setName(String name) {
 		this.name = name;
 	}
