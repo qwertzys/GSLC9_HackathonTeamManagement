@@ -42,7 +42,7 @@ public class Main {
 						System.out.println("1. User");
 						System.out.println("2. Team");
 						insertTable = inp.nextInt();
-						if (insertTable == 1) {
+						if (insertTable == 1) { // If pick option User
 							System.out.print("Add Name: ");
 							name = inp.next();
 							u.setName(name);
@@ -51,13 +51,13 @@ public class Main {
 							u.setNim(nim);
 							System.out.print("Add Team: ");
 							teamName = inp.next();
-						} else if (insertTable == 2) {
+						} else if (insertTable == 2) { // If pick option team
 							System.out.print("Add Team Name: ");
 							newTeam = inp.next();
 							String[] str = new String[5];
 							str[0] = "=";
 							str[1] = newTeam;
-							if(t.findOne("name", str , false, null, c) != null) {
+							if(t.findOne("name", str , false, null, c) != null) { // If name is already registered in Team
 								System.out.println("name already added");
 							} else {
 								at = t.find(null, null, null, null, c);
@@ -71,9 +71,6 @@ public class Main {
 							System.out.println("Invalid Option, try again");
 						}
 					} while (insertTable != 1 && insertTable != 2);
-					
-					// butuh function untuk insert data kepada csv dibawah line ini
-					
 					break;
 				}
 				
@@ -96,17 +93,15 @@ public class Main {
 						conditionChoice = inp.nextInt();
 					} while (conditionChoice != 1 && conditionChoice != 2);
 					
-					if (conditionChoice == 2) {
+					if (conditionChoice == 2) { // No condition
 						// show semua table
-						// Butuh function untuk menunjukkan semua table
-						
-						if(showTable == 1) {
+						if(showTable == 1) { // for User
 							ArrayList<User> au1 = u.find(null, null, null, null, c);
 							System.out.println("NIM | Name | Team ID");
 							for(User us : au1) {
 								System.out.printf("%s | %s | %d\n", us.getNim(), us.getName(), us.getId());
 							}
-						}else {
+						}else { // for Team
 							ArrayList<Team> at1 = t.find(null, null, null, null, c);
 							System.out.println("ID | Team Name");
 							for(Team te : at1) {
@@ -119,10 +114,7 @@ public class Main {
 						System.out.print("Add condition, separate by semicolon [condition;=;value]: ");
 						condition = inp.next();			
 						String[] conditionSpl = condition.split(";");
-						
-						// Butuh function dibawah line ini untuk menunjukkan tabel sesuai dengan kondisi yang dikasih
-						
-						if(showTable == 1) {
+						if(showTable == 1) { // User
 							if(conditionSpl[0].equalsIgnoreCase("nim") ) {
 								ArrayList<User> au1 = u.find(null, null, null, null, c);
 								System.out.println("NIM | Name | Team ID");
@@ -143,7 +135,7 @@ public class Main {
 									if(conditionSpl[2].equalsIgnoreCase(Integer.toString(us.getId())))
 									System.out.printf("%s | %s | %d\n", us.getNim(), us.getName(), us.getId());
 							}
-						}else {
+						}else { // Team
 							if(conditionSpl[0].equalsIgnoreCase("id")) {
 								ArrayList<Team> at1 = t.find(null, null, null, null, c);
 								System.out.println("ID | Team Name");
