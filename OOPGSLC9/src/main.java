@@ -4,15 +4,17 @@ import Models.*;
 import Repository.*;
 // import java.util.*;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		hackerInfo hacker = new hackerInfo();
-		ArrayList<String> teams = new ArrayList();
-		// ArrayList<String> hacker = new ArrayList();
+		
+		User u = new User();
+		Team t = new Team();
+		ArrayList<User> au = new ArrayList();
+		ArrayList<Team> at = new ArrayList();
 		Scanner inp = new Scanner(System.in); // Scanner
-		int choice = 0; // default choice mulai dari 0 untuk pilih options
+		int choice = 1; // default choice mulai dari 0 untuk pilih options
 		while (choice != 4) { // Loop Menu utama terus sampe kena exit
 			// Menu Utama
 			System.out.println("1. Menu Utama");
@@ -31,7 +33,7 @@ public class main {
 				case 2: { // Insert Data
 					int insertTable = 0;
 					String name;
-					int nim;
+					String nim;
 					String teamName;
 					String newTeam;
 					do {
@@ -39,17 +41,20 @@ public class main {
 						System.out.println("1. User");
 						System.out.println("2. Team");
 						insertTable = inp.nextInt();
-						if (insertTable == 1 && !teams.isEmpty()) {
+						if (insertTable == 1) {
 							System.out.print("Add Name: ");
 							name = inp.next();
+							u.setName(name);
 							System.out.print("Add NIM: ");
-							nim = inp.nextInt();
+							nim = inp.next();
+							u.setNim(nim);
 							System.out.print("Add Team: ");
 							teamName = inp.next();
 						} else if (insertTable == 2) {
 							System.out.print("Add Team Name: ");
 							newTeam = inp.next();
-							teams.add(newTeam);
+							
+							
 						} else {
 							System.out.println("Invalid Option, try again");
 						}
@@ -69,7 +74,7 @@ public class main {
 						System.out.println("Which Table to Show?");
 						System.out.println("1. User");
 						System.out.println("2. Team");
-						showTable = inp.nextInt();	
+						showTable = inp.nextInt();
 					} while (showTable != 1 && showTable != 2);
 					
 					do {
